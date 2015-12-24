@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Formatter;
 
 public class Compress {
 //	private static Point point = null;
@@ -13,18 +14,30 @@ public class Compress {
 			String[] s = al.get(i).split(" ");
 			pointList.add(new Point(new Double(s[3]).doubleValue(), new Double(
 					s[5]).doubleValue(),0));
-			// System.out.println(s[3]+" "+s[5]);
+			/*System.out.println(""+i);
+			System.out.println(s[3]+" "+s[5]);*/
 		}
-		/*
-		 * for(int i=0;i<pointList.size();++i) {
-		 * System.out.println(pointList.get
-		 * (i).getLongitude()+" "+pointList.get(i).getLatitude()); }
-		 */
-		/*System.out.println(DPUtil
-				.Geodist(pointList.get(0).getLatitude(), pointList.get(0)
-						.getLongitude(), pointList.get(1).getLatitude(),
-						pointList.get(1).getLongitude()));*/
-		//DPUtil.DouglasPeucker(pointList, 0, pointList.size()-1, 30.0);
+		int length = pointList.size();
+		/*DPUtil.DouglasPeucker(0, pointList.size()-1, 30.0);
+		int count = 0;
+		for (int i = 0; i < pointList.size(); ++i) {
+			if(pointList.get(i).getMark()==1){
+				System.out.println(++count +" "+pointList.get(i).getLongitude()+" "+pointList.get(i)..getLatitude());
+			}
+		}*/
+		
+		ArrayList<Point> alist=DPUtil.DouglasPeucker(0, length-1, 30.0);
+		ArrayList<String> als =new ArrayList<String>(alist.size());
+		alist.add(0,pointList.get(0));
+		alist.add(pointList.get(length-1));
+		int count = 0;
+		for (int i = 0; i < alist.size(); ++i) {
+			als.add(i +" "+alist.get(i).getLongitude()+" "+alist.get(i).getLatitude());
+			count++;
+				//System.out.println(i +" "+alist.get(i).getLongitude()+" "+alist.get(i).getLatitude());
+		}
+		System.out.println("Compress rate: "+String.format("%.2f", (double)count/length*100)+"%");
+		DPUtil.writeFile(als);
 	}
 
 }
