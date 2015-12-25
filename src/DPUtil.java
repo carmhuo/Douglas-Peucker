@@ -97,7 +97,7 @@ public class DPUtil {
 		return d * Math.PI / 180.0;
 	}
 	public static void writeFile(ArrayList<String> aList){
-		File f =new File("Compress_Result_GPS_log_.txt");
+		File f =new File("Compressed_GPS_log_.txt");
 		try{
 			FileWriter fw = new FileWriter(f);
 			BufferedWriter bufw = new BufferedWriter(fw);
