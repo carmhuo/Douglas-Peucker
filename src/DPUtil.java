@@ -50,16 +50,16 @@ public class DPUtil {
 			}
 		}
 		if(dmax>=threshold){
-			resultList.add(Compress.pointList.get(index));
+			resultList.add(TrajCompress.pointList.get(index));
 			resultList=DouglasPeucker(startIndex,index,threshold);
 			resultList=DouglasPeucker(index,endIndex,threshold);
 		}
 		return resultList;
 	}
 	public static double PerpendicularDistance(int start, int end, int current) {  
-		double a=Geodist(Compress.pointList.get(start).getLatitude(),Compress.pointList.get(start).getLongitude(),Compress.pointList.get(end).getLatitude(),Compress.pointList.get(end).getLongitude());
-		double b=Geodist(Compress.pointList.get(start).getLatitude(),Compress.pointList.get(start).getLongitude(),Compress.pointList.get(current).getLatitude(),Compress.pointList.get(current).getLongitude());
-		double c=Geodist(Compress.pointList.get(current).getLatitude(),Compress.pointList.get(current).getLongitude(),Compress.pointList.get(end).getLatitude(),Compress.pointList.get(end).getLongitude());
+		double a=Geodist(TrajCompress.pointList.get(start).getLatitude(),TrajCompress.pointList.get(start).getLongitude(),TrajCompress.pointList.get(end).getLatitude(),TrajCompress.pointList.get(end).getLongitude());
+		double b=Geodist(TrajCompress.pointList.get(start).getLatitude(),TrajCompress.pointList.get(start).getLongitude(),TrajCompress.pointList.get(current).getLatitude(),TrajCompress.pointList.get(current).getLongitude());
+		double c=Geodist(TrajCompress.pointList.get(current).getLatitude(),TrajCompress.pointList.get(current).getLongitude(),TrajCompress.pointList.get(end).getLatitude(),TrajCompress.pointList.get(end).getLongitude());
 		double p=(a+b+c)/2;
 		double S=Math.sqrt(p*(p-a)*(p-b)*(p-c));
 		double dist=2*S/a;
@@ -97,7 +97,7 @@ public class DPUtil {
 		return d * Math.PI / 180.0;
 	}
 	public static void writeFile(ArrayList<String> aList){
-		File f =new File("Compressed_GPS_log_.txt");
+		File f =new File("Compressed_GPS_log.txt");
 		try{
 			FileWriter fw = new FileWriter(f);
 			BufferedWriter bufw = new BufferedWriter(fw);
