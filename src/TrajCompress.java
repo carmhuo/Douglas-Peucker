@@ -2,9 +2,7 @@ import java.util.ArrayList;
 import java.util.Formatter;
 
 public class TrajCompress {
-//	private static Point point = null;
 	public static ArrayList<Point> pointList = null;
-
 	public static void main(String[] args) {
 		ArrayList<String> al = DPUtil
 				.readFile("2007-10-14-GPS.log");
@@ -14,8 +12,6 @@ public class TrajCompress {
 			String[] s = al.get(i).split(" ");
 			pointList.add(new Point(new Double(s[3]).doubleValue(), new Double(
 					s[5]).doubleValue(),0));
-			/*System.out.println(""+i);
-			System.out.println(s[3]+" "+s[5]);*/
 		}
 		int length = pointList.size();
 		/*DPUtil.DouglasPeucker(0, pointList.size()-1, 30.0);
@@ -25,7 +21,6 @@ public class TrajCompress {
 				System.out.println(++count +" "+pointList.get(i).getLongitude()+" "+pointList.get(i)..getLatitude());
 			}
 		}*/
-		
 		ArrayList<Point> alist=DPUtil.DouglasPeucker(0, length-1, 30.0);
 		ArrayList<String> als =new ArrayList<String>(alist.size());
 		alist.add(0,pointList.get(0));
