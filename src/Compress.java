@@ -7,7 +7,7 @@ public class Compress {
 
 	public static void main(String[] args) {
 		ArrayList<String> al = DPUtil
-				.readFile("C:\\Users\\carm\\Desktop\\2007-10-14-GPS.log");
+				.readFile("2007-10-14-GPS.log");
 		pointList = new ArrayList<Point>();
 		// point = new Point(0.0,0.0);
 		for (int i = 0; i < al.size(); ++i) {
