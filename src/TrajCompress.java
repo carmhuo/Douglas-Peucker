@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Formatter;
 
 public class TrajCompress {
 	public static ArrayList<Point> pointList = null;
