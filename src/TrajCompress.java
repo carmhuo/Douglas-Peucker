@@ -9,8 +9,12 @@ public class TrajCompress {
 		// point = new Point(0.0,0.0);
 		for (int i = 0; i < al.size(); ++i) {
 			String[] s = al.get(i).split(" ");
-			pointList.add(new Point(new Double(s[3]).doubleValue(), new Double(
-					s[5]).doubleValue(),0));
+			double lon = new Double(s[3]).doubleValue();
+			double lat = new Double(s[5]).doubleValue();
+			double longitude = (int)(lon/100) + (((lon/100)-(int)(lon/100))*100)/60;
+			double latitude =  (int)(lat/100) + (((lat/100)-(int)(lat/100))*100)/60;
+			pointList.add(new Point(longitude, latitude,0));
+			//System.out.println(longitude+" "+latitude);
 		}
 		int length = pointList.size();
 		/*DPUtil.DouglasPeucker(0, pointList.size()-1, 30.0);
