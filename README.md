@@ -5,7 +5,7 @@ Applying Douglas-Peucker for Spatio-Temporal Data Compression
 
 a)Experimental data 
   
-  Total 3150 Spatio-Temporal trajectories data,2007-10-14-GPS.log
+  Total 3150 Spatio-Temporal trajectories data(2007-10-14-GPS.log)
 
 b)Experimental results 
 
